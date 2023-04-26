@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const { clog } = require('./middleware/clog');
 const api = require('./routes/index.js');
+const fs = require('fs').promises;
+const readFile = async (path) => await fs.readFile(path, "utf8");
+const writeFile = async (path, data) => await fs.writeFile(path, data);
 
 const PORT = process.env.port || 3001;
 
